@@ -14,10 +14,10 @@ DOCKER_DATE="20250208"
 # Architecture or file detection
 #
 
-if [ -f "$1" ]; then
+if [ -f "${1}" ]; then
   echo "Will use specified local file ${1}"
   DOCKER_FILE="$(realpath "${1}")"
-elif [ "$1" == "uninstall" ] then;
+elif [ "${1}" == "uninstall" ]; then
   UNINSTALL=1
   echo "Uninstall everything including docker data"
 else
@@ -55,8 +55,8 @@ if [ -d "/storage/.docker/bin" ]; then
     systemctl stop "service.system.docker.service"
     systemctl disable "service.system.docker.service"
 
-    if $UNINSTALL; then
-      echo "Removing /storage/.docker if exists"
+    if [ -n "${UNINSTALL}" ]; then
+      echo "!!! Removing /storage/.docker with data-root"
       rm -rf /storage/.docker
     else
       rm -rf /storage/.docker/{bin,cli-plugins}
@@ -93,9 +93,7 @@ if [ -f "/storage/.kodi/addons/service.system.docker/bin/dockerd" ]; then
   fi
 fi
 
-if $UNINSTALL; then
-  echo "Removing /storage/.docker if exists"
-  rm -rf /storage/.docker
+if [ -n "${UNINSTALL}" ]; then
   echo "Uninstall is complete"
   exit 0
 fi
