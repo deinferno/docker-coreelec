@@ -143,7 +143,7 @@ mkdir -p "storage" "storage/.docker" "storage/.docker/bin" "storage/.docker/cli-
 cp -Rp "${SCRIPT_DIR}/src/config" "storage/.config"
 cp -Rp "moby/bundles/binary/." "storage/.docker/bin"
 cp -Rp "cli/build/." "storage/.docker/bin"
-cp -Rp "buildx/bin/build/." "storage/.docker/cli-plugins"
+cp -p "buildx/bin/build/buildx" "storage/.docker/cli-plugins/docker-buildx"
 cp -Rp "compose/bin/build/." "storage/.docker/cli-plugins"
 
 pushd "storage/.docker/bin"
