@@ -8,7 +8,7 @@ set -e
 
 DOCKER_TAG="v27.5.1"
 DOCKER_VERSION="v27.5.1.m"
-DOCKER_DATE="20250208"
+DOCKER_DATE="20250209"
 
 #
 # Architecture or file detection
